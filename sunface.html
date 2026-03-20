@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunFace - Energía Solar Sostenible</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* ===== HEADER Y NAVEGACIÓN ===== */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d3a1a 100%);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #32d946 0%, #1a8a2e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #32d946;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #32d946;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        article {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        article h2 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            border-left: 4px solid #32d946;
+            padding-left: 1rem;
+        }
+
+        article p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            color: #555;
+        }
+
+        article:nth-of-type(2) {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        section h3 {
+            color: #32d946;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        section h3::before {
+            content: '●';
+            color: #32d946;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e9 100%);
+            padding: 1.5rem;
+            border-left: 4px solid #32d946;
+            border-radius: 4px;
+        }
+
+        .stat-card h4 {
+            color: #1a1a1a;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: #32d946;
+            font-weight: bold;
+        }
+
+        /* ===== FIGURE Y FIGCAPTION ===== */
+        figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        figure img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 2px solid #32d946;
+        }
+
+        figcaption {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            padding: 0 1rem;
+        }
+
+        /* ===== ASIDE (BARRA LATERAL) ===== */
+        aside {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        aside h4 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #32d946;
+            padding-bottom: 0.5rem;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside li {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        aside li::before {
+            content: '▸';
+            color: #32d946;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        aside a {
+            color: #32d946;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        aside a:hover {
+            color: #1a8a2e;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d3a1a 100%);
+            color: #fff;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h5 {
+            color: #32d946;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #32d946;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                grid-column: 1;
+                order: 2;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            figure img {
+                max-width: 100%;
+            }
+        }
+
+        /* ===== ANIMACIONES ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        article,
+        section {
+            animation: fadeIn 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">☀️</div>
+                <span>SunFace</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <div class="container">
+        <main>
+            <!-- ===== ARTICLE 1 ===== -->
+            <article id="inicio">
+                <h2>Energía Solar: El Futuro de la Sostenibilidad</h2>
+                <p>
+                    La energía solar se ha convertido en una de las fuentes de energía renovable más prometedoras y accesibles del mundo moderno. 
+                    Según la Agencia Internacional de la Energía (AIE), la energía solar fotovoltaica se espera que sea la fuente de electricidad 
+                    más grande del mundo para 2050. En 2022, la capacidad global de energía solar alcanzó aproximadamente 942 GW, con un crecimiento 
+                    anual del 25%, lo que demuestra el rápido avance tecnológico en este sector.
+                </p>
+                <p>
+                    Los paneles solares convierten la luz del sol directamente en electricidad, oferiendo una solución limpia, silenciosa y 
+                    prácticamente inagotable. Con más de 40 años de desarrollo tecnológico, los sistemas solares modernos alcanzan eficiencias 
+                    del 20-22% en condiciones estándar, y en laboratorios se han alcanzado eficiencias superiores al 46% con celdas de múltiples 
+                    capas. Esta tecnología no solo beneficia al medio ambiente, sino que también representa una inversión económica inteligente 
+                    a largo plazo.
+                </p>
+
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e938aa1ef14?w=800&h=500&fit=crop" 
+                         alt="Panel solar moderno bajo luz solar">
+                    <figcaption>
+                        Paneles solares fotovoltaicos de última generación capturando energía del sol. 
+                        Los avances tecnológicos continúan mejorando la eficiencia y reduciendo costos.
+                    </figcaption>
+                </figure>
+
+                <section id="tecnologia">
+                    <h3>Tecnología Fotovoltaica</h3>
+                    <p>
+                        Los paneles solares fotovoltaicos funcionan mediante el efecto fotoeléctrico, donde los fotones de la luz solar 
+                        interaccionan con los materiales semiconductores (principalmente silicio) para liberar electrones y crear una 
+                        corriente eléctrica. Existen varios tipos de tecnologías:
+                    </p>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h4>Silicio Cristalino</h4>
+                            <div class="stat-value">~90%</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">del mercado global actual</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Capa Delgada</h4>
+                            <div class="stat-value">~8%</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">en desarrollo y adopción</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Perovskita</h4>
+                            <div class="stat-value">+25%</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">potencial futuro (lab)</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Eficiencia Récord</h4>
+                            <div class="stat-value">47%</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">multijuntura (laboratorio)</p>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <!-- ===== ARTICLE 2 ===== -->
+            <article id="beneficios">
+                <h2>Beneficios Económicos y Ambientales</h2>
+                <p>
+                    La transición a la energía solar ofrece múltiples beneficios tanto a nivel individual como global. 
+                    A nivel económico, mientras que la inversión inicial en paneles solares ha disminuido un 90% en la última década, 
+                    los costos operativos se mantienen mínimos.
+                </p>
+
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=500&fit=crop" 
+                         alt="Campo de paneles solares en atardecer">
+                    <figcaption>
+                        Parque solar a gran escala demostrando el impacto positivo en la generación de energía renovable. 
+                        Estas instalaciones pueden abastecer a miles de hogares simultáneamente.
+                    </figcaption>
+                </figure>
+
+                <section>
+                    <h3>Ventajas Comprobadas</h3>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h4>Reducción de CO₂</h4>
+                            <div class="stat-value">~200</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">tons/año por MW instalado</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Ahorro Anual</h4>
+                            <div class="stat-value">30-50%</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">en facturas de electricidad</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>ROI Promedio</h4>
+                            <div class="stat-value">5-8</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">años de recuperación</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Vida Útil</h4>
+                            <div class="stat-value">25-30</div>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">años con 80%+ eficiencia</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 1.5rem;">
+                        <strong>Impacto Ambiental:</strong> Una instalación solar residencial típica (5 kW) puede evitar la emisión de 
+                        más de 140 toneladas de CO₂ a lo largo de su vida útil. Esto equivale a plantar más de 1,100 árboles. 
+                        Según datos de la Organización de Naciones Unidas (ONU), la energía solar podría suministrar el 27% de la 
+                        electricidad mundial para 2050.
+                    </p>
+                </section>
+            </article>
+
+            <!-- ===== ASIDE ===== -->
+            <aside>
+                <h4>Recursos Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">► Inicio</a></li>
+                    <li><a href="#tecnologia">► Tecnología</a></li>
+                    <li><a href="#beneficios">► Beneficios</a></li>
+                </ul>
+
+                <h4 style="margin-top: 2rem;">Datos Clave</h4>
+                <ul>
+                    <li>⚡ 1 panel = 300-400W</li>
+                    <li>☀️ Sol: 173,000 TW de poder</li>
+                    <li>📈 Crecimiento: 25% anual</li>
+                    <li>🌍 942 GW instalados (2022)</li>
+                    <li>💰 Costos ↓ 90% (2012-2022)</li>
+                </ul>
+
+                <h4 style="margin-top: 2rem;">Fuentes</h4>
+                <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none;">
+                    <li><a href="https://www.iea.org/" target="_blank">AIE</a></li>
+                    <li><span style="color: #999;">•</span></li>
+                    <li><a href="https://www.irena.org/" target="_blank">IRENA</a></li>
+                    <li><span style="color: #999;">•</span></li>
+                    <li><a href="https://www.nrel.gov/" target="_blank">NREL</a></li>
+                    <li><span style="color: #999;">•</span></li>
+                    <li><a href="https://www.un.org/" target="_blank">ONU</a></li>
+                </ul>
+            </aside>
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>Sobre SunFace</h5>
+                    <ul>
+                        <li><a href="#">Acerca de nosotros</a></li>
+                        <li><a href="#">Nuestro equipo</a></li>
+                        <li><a href="#">Historias de éxito</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Soluciones</h5>
+                    <ul>
+                        <li><a href="#">Residencial</a></li>
+                        <li><a href="#">Comercial</a></li>
+                        <li><a href="#">Industrial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Contacto</h5>
+                    <ul>
+                        <li><a href="mailto:info@sunface.com">info@sunface.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>Santiago, Chile</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SunFace Energy Solutions. Todos los derechos reservados. | 
+                    <a href="#" style="color: #999;">Privacidad</a> | 
+                    <a href="#" style="color: #999;">Términos de Uso</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
